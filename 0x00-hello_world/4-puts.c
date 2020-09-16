@@ -1,3 +1,8 @@
+/**
+ * main - This is a program to print out a message using puts.
+ * Return: prints out a message and return 0.
+ */
+
 #include <stdio.h>
 
 int main(void)
