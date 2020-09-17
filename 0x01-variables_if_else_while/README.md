@@ -1,0 +1,1 @@
+This project directory are submitions for project 0x01. This project has examples of how to do if else and while statements.
