@@ -8,23 +8,21 @@ int main(void)
 {
 	int i;
 	int j;
+	int d = '1';
 
 	for (i = '0'; i <= '8'; i++)
 	{
-		for (j = '1'; j <= '9'; j++)
+		for (j = d; j <= '9'; j++)
 		{
 			if (i != j)
 			{
 				putchar(i);
 				putchar(j);
-				if (j != '9' || i != '9')
-				{
-					putchar(',');
-					putchar(32);
-				}
+				putchar(',');
+				putchar(32);
 			}
 		}
-		j++;
+		d++;
 	}
 	putchar('\n');
 	return (0);
