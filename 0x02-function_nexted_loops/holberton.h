@@ -157,7 +157,30 @@ void jack_bauer(void)
 
 void times_table(void)
 {
-	
+	int times1;
+	int times2;
+	int together = times1 * times2;
+
+	for (times1 = 0; times1 < 10; times1++)
+	{
+		_putchar(together + '0');
+		for (times2 = 0; times2 < 10; times2++)
+		{
+			_putchar(',');
+			_putchar(' ');
+			if (together < 10)
+			{
+				_putchar(' ');
+				_putchar(together + '0');
+			}
+			else
+			{
+				_putchar(together / 10 + '0');
+				_putchar(together % 10 + '0');
+			}
+		}
+		_putchar('\n');
+	}
 }
 
 int add(int n1, int n2)
