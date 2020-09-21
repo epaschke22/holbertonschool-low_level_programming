@@ -25,6 +25,12 @@
  *
  * jack_bauer - prints every minute for 24 hours from 00:00 to 23:59
  *
+ * times_table - prints the times table for 9 starting with 0.
+ *
+ * add - prints sum of both arguments
+ *
+ * print_to_98 - prints all natrual numbers from n to 98.
+ *
  */
 int _putchar(char c)
 {
@@ -130,26 +136,38 @@ void jack_bauer(void)
 {
 	int minuteOnes;
 	int minuteTens;
-	int hourOnes;
-	int hourTens;
+	int hour;
 
-	for (hourTens = 0; hourTens < 3; hourTens++)
+	for (hour = 0; hour < 23; hour++)
 	{
-		for (hourOnes = 0; hourOnes < 4; hourOnes++)
-		{
-			for (minuteTens = 0; minuteTens < 6; minuteTens++)
-			{
-				for (minuteOnes = 0; minuteOnes < 10; minuteOnes++)
-				{
-					_putchar(hourTens + '0');
-					_putchar(hourOnes + '0');
-					_putchar(':');
-					_putchar(minuteTens + '0');
-					_putchar(minuteOnes + '0');
-					_putchar('\n');
-				}
+		for (minuteTens = 0; minuteTens < 6; minuteTens++)
+	       	{
+	       		for (minuteOnes = 0; minuteOnes < 10; minuteOnes++)
+		       	{
+		       		_putchar(hour / 10 + '0');
+			       	_putchar(hour % 10 + '0');
+			       	_putchar(':');
+			       	_putchar(minuteTens + '0');
+			       	_putchar(minuteOnes + '0');
+			       	_putchar('\n');
 			}
 		}
 	}
+}
+
+void times_table(void)
+{
+	
+}
+
+int add(int n1, int n2)
+{
+	int result = n1 + n2;
+	return result;
+}
+
+void print_to_98(int n)
+{
+
 }
 # endif /*HEADER_H*/
