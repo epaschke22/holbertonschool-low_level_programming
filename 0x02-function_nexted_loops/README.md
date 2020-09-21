@@ -1,0 +1,1 @@
+These files are submissions for C code that answers the tasks in project 0x02 functions and nexted loops.
