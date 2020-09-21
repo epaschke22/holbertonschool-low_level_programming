@@ -3,6 +3,7 @@
  * Return: should always return 0
  */
 #include <stdio.h>
+#include "holberton.h"
 
 int main(void)
 {
@@ -11,8 +12,8 @@ int main(void)
 
 	for(i = 0; Hstring[i] != '\0'; i++)
 	{
-		putchar(Hstring[i]);
+		_putchar(Hstring[i]);
 	}
-	putchar('\n');
+	_putchar('\n');
 	return (0);
 }
