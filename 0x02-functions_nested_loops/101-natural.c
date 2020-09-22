@@ -12,6 +12,6 @@ int main(void)
 	for (multiple = 0; multiple < 1025; multiple++)
 		if ((multiple % 3) == 0 || (multiple % 5) == 0)
 			totalsum = totalsum + multiple;
-	printf("%d\n",totalsum);
+	printf("%d\n", totalsum);
 	return (0);
 }
