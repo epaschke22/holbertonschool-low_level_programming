@@ -7,8 +7,21 @@
 
 int print_last_digit(int n)
 {
-	int result = _abs(n % 10);
+	int last = n % 10;
+	int result;
 
+	if (last < 0)
+	{
+		result = last - last * 2;
+	}
+	else if (last > 0)
+	{
+		result = last;
+	}
+	else
+	{
+		result = 0;
+	}
 	_putchar('0' + result);
 	return (result);
 }
