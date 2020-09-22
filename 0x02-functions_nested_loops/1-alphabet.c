@@ -1,9 +1,9 @@
+#include "holberton.h"
 /**
- * main - prints the alphabet with the print_alphabet function
+ * print_alphabet - prints the alphabet with the print_alphabet function
+ *
  * Return: should always be 0
  */
-#include <stdio.h>
-#include "holberton.h"
 
 void print_alphabet(void)
 {
@@ -14,10 +14,4 @@ void print_alphabet(void)
 		_putchar(letter);
 	}
 	_putchar('\n');
-}
-
-int main(void)
-{
-	print_alphabet();
-	return (0);
 }
