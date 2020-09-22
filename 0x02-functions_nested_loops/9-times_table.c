@@ -10,7 +10,7 @@ void times_table(void)
 {
 	int times1;
 	int times2;
-	int product = times1 * times2;
+	int product;
 
 	for (times1 = 0; times1 < 10; times1++)
 	{
