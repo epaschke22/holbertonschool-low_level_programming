@@ -1,21 +1,25 @@
+#include "holberton.h"
 /**
- * main - checks holbeton header for _abs function
+ * _abs - converts int into a positive number if negative.
+ * @n: is the number to check.
  * Return: always 0.
  */
-#include <stdio.h>
-#include "holberton.h"
 
-int main(void)
+int _abs(int n)
 {
-	int r;
+	int result;
 
-	r = _abs(-1);
-	printf("%d\n", r);
-	r = _abs(0);
-	printf("%d\n", r);
-	r = _abs(1);
-	printf("%d\n", r);
-	r = _abs(-98);
-	printf("%d\n", r);
-	return (0);
+	if (n < 0)
+	{
+		result = n - n * 2;
+	}
+	else if (n > 0)
+	{
+		result = n;
+	}
+	else
+	{
+		result = 0;
+	}
+	return (result);
 }
