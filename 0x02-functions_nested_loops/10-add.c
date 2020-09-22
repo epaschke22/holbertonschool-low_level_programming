@@ -1,15 +1,14 @@
-#include <stdio.h>
-
+#include "holberton.h"
 /**
- * main - check the code for Holberton School students.
- *
+ * add - adds together 2 numbers.
+ * @n1: first number to add.
+ * @n2: second number to add.
  * Return: Always 0.
  */
-int main(void)
-{
-	int n;
 
-	n = add(89, 9);
-	printf("%d\n", n);
-	return (0);
+int add(int n1, int n2)
+{
+	int result = n1 + n2;
+
+	return (result);
 }
