@@ -10,7 +10,7 @@ int main(void)
 	char Hstring[] = "Holberton";
 	int i;
 
-	for(i = 0; Hstring[i] != '\0'; i++)
+	for (i = 0; Hstring[i] != '\0'; i++)
 	{
 		_putchar(Hstring[i]);
 	}
