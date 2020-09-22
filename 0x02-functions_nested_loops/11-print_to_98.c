@@ -1,16 +1,25 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
- * main - check the code for Holberton School students.
- *
+ * print_to_98 - prints out all numbers in order to 98 pos or neg.
+ * @n: starting number away from 98.
  * Return: Always 0.
  */
-int main(void)
+
+void print_to_98(int n)
 {
-	print_to_98(0);
-	print_to_98(98);
-	print_to_98(111);
-	print_to_98(81);
-	print_to_98(-10);
-	return (0);
+	while (n != 98)
+	{
+		printf("%d, ", n);
+		if (n < 98)
+		{
+			n++;
+		}
+		else
+		{
+			n--;
+		}
+	}
+	printf("98\n");
 }
