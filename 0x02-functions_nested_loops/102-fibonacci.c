@@ -11,13 +11,16 @@ int main(void)
 	int i;
 
 	printf("%ld, ", firstnum);
-	printf("%ld\n", secondnum);
+	printf("%ld, ", secondnum);
 	for (i = 0; i < 24; i++)
 	{
 		firstnum = firstnum + secondnum;
 		printf("%ld, ", firstnum);
 		secondnum = secondnum + firstnum;
-		printf("%ld\n", secondnum);
+		printf("%ld", secondnum);
+		if (i != 23)
+			printf(", ");
 	}
+	putchar('\n');
 	return (0);
 }
