@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - adds together all even fib numbers under 4 million. 
+ * main - adds together all even fib numbers under 4 million.
  * Return: always 0.
  */
 
@@ -18,7 +18,7 @@ int main(void)
 		secondnum = secondnum + firstnum;
 		if (secondnum % 2 != 0)
 			sum = sum + secondnum;
-        }
+	}
 	printf("%ld\n", sum);
 	return (0);
 }
