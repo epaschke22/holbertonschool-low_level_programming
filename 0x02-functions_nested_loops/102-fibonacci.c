@@ -7,15 +7,17 @@
 int main(void)
 {
 	long firstnum = 1;
-	long secondnum = 1;
+	long secondnum = 2;
 	int i;
 
-	for (i = 0; i < 25; i++)
+	printf("%ld, ", firstnum);
+	printf("%ld\n", secondnum);
+	for (i = 0; i < 24; i++)
 	{
-		printf("%ld\n", firstnum);
 		firstnum = firstnum + secondnum;
-		printf("%ld\n", secondnum);
+		printf("%ld, ", firstnum);
 		secondnum = secondnum + firstnum;
+		printf("%ld\n", secondnum);
 	}
 	return (0);
 }
