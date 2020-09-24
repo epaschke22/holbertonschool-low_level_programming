@@ -10,6 +10,7 @@ void print_triangle(int size)
 	int height;
 	int length;
 	int space;
+
 	if (size > 0)
 		for (height = 1; height <= size; height++)
 		{
