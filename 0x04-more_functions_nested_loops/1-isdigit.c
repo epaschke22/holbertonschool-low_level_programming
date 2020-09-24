@@ -1,13 +1,13 @@
 #include "holberton.h"
 /**
- * _isupper - Returns 1 if c is upper case, else 0.
+ * _isdigit - Returns 1 if number, else 0.
  * @c: is character to check.
  * Return: always 0.
  */
 
-int _isupper(char c)
+int _isdigit(char c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (c >= '0' && <= '9')
 		return (1);
 	else
 		return (0);
