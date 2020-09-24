@@ -7,7 +7,7 @@
 int main(void)
 {
 	int i;
-	
+
 	putchar('1');
 	for (i = 2; i < 101; i++)
 	{
