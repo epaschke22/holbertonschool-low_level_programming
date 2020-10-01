@@ -11,7 +11,7 @@ char *cap_string(char *s)
 	char ends[] = " \t\n,;.!?\"(){}";
 
 	if (s[0] >= 'a' && s[0] <= 'z')
-		s[0] -=32;
+		s[0] -= 32;
 
 	for (i = 0; s[i] != 0; i++)
 		for (j = 0; ends[j] != 0; j++)
