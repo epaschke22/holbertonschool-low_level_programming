@@ -1,0 +1,1 @@
+These asignments are a conintuation of concepts learned in 0x05 about pointers, arrays and strings.
