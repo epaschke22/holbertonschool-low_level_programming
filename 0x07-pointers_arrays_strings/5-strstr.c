@@ -1,4 +1,4 @@
-B#include "holberton.h"
+#include "holberton.h"
 /**
  * _strstr - finds string within another string.
  * @haystack: the string to look through.
