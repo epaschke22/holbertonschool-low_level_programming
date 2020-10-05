@@ -8,22 +8,24 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, k, place;
+	int counter1, counter2, counter3, place;
 
-	for (i = 0; haystack[i]; i++)
+	for (counter1 = 0; haystack[counter1]; counter1++)
 	{
-		if (haystack[i] == needle[0])
+		if (haystack[counter1] == needle[0])
 		{
-			place = i;
-			k = i;
-			for (j = 0; needle[j]; j++)
-				if (needle[j] == haystack[k])
+			place = counter1;
+			counter3 = counter1;
+			for (counter2 = 0; needle[counter2]; counter2++)
+				if (needle[counter2] == haystack[counter3])
 				{
-					k++;
+					counter3++;
 				}
 				else
 					place = 0;
 		}
 	}
-	return (haystack + place);
+	if (place > 0)
+		return (haystack + place);
+	return (haystack + counter1);
 }
