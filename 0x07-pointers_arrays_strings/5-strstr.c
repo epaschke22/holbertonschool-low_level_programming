@@ -30,5 +30,5 @@ char *_strstr(char *haystack, char *needle)
 	}
 	if (counter3 > 0)
 		return (haystack + place);
-	return (haystack + counter1);
+	return (0);
 }
