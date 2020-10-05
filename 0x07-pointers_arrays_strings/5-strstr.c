@@ -22,10 +22,13 @@ char *_strstr(char *haystack, char *needle)
 					counter3++;
 				}
 				else
+				{
 					place = 0;
+					counter3 = 0;
+				}
 		}
 	}
-	if (place > 0)
+	if (counter3 > 0)
 		return (haystack + place);
 	return (haystack + counter1);
 }
