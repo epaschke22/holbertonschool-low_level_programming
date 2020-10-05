@@ -1,0 +1,1 @@
+These tasks forcus on learning how to uses double pointers and multi arrays.
