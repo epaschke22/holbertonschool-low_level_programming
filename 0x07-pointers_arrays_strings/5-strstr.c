@@ -1,4 +1,4 @@
-#include "holberton.h"
+B#include "holberton.h"
 /**
  * _strstr - finds string within another string.
  * @haystack: the string to look through.
@@ -8,7 +8,7 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int length, i, j, k, place;
+	int i, j, k, place;
 
 	for (i = 0; haystack[i]; i++)
 	{
@@ -23,7 +23,7 @@ char *_strstr(char *haystack, char *needle)
 				}
 				else
 					place = 0;
-		}		
+		}
 	}
 	return (haystack + place);
 }
