@@ -8,7 +8,7 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int counter1, counter2, counter3, place;
+	int counter1, counter2, counter3 = 0, place;
 
 	for (counter1 = 0; haystack[counter1]; counter1++)
 	{
