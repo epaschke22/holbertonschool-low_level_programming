@@ -29,5 +29,5 @@ char *_strstr(char *haystack, char *needle)
 	}
 	if (counter3 > 0)
 		return (haystack + place);
-	return (0);
+	return ((void *) 0);
 }
