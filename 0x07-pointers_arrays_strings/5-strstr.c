@@ -8,7 +8,12 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int counter1, counter2, counter3 = 0, place;
+	int counter1 = 0, counter2 = 0, counter3 = 0, place;
+
+	while (needle[counter1] != 0)
+		counter1++;
+	if (counter1 < 1)
+		return (haystack);
 
 	for (counter1 = 0; haystack[counter1]; counter1++)
 	{
@@ -27,8 +32,6 @@ char *_strstr(char *haystack, char *needle)
 				}
 		}
 	}
-	if (counter1 == 0)
-		return (haystack);
 	if (counter3 > 0)
 		return (haystack + place);
 	return (0);
