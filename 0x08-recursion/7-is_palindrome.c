@@ -24,13 +24,14 @@ int _strlen(char *s)
  */
 int bothends(int begin, int end, char *s)
 {
-	if (*s)
+	if (begin >= end)
 	{
-		if (s[begin] != s[end])
-			return (0);
-		bothends(begin + 1, end - 1, s);
+		return (1);
 	}
-	return (1);
+	if (s[begin] != s[end])
+		return (0);
+	else
+		return (bothends(begin + 1, end - 1, s));
 }
 
 /**
