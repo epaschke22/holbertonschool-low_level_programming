@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * _puts_recersion - prints a string followed by a new line.
+ * _puts_recursion - prints a string followed by a new line.
  * @s: input string
  */
 
