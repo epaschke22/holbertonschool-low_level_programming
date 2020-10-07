@@ -43,6 +43,6 @@ int is_palindrome(char *s)
 	int length = _strlen(s);
 
 	if (length < 1)
-		return (0);
+		return (1);
 	return (bothends(0, length - 1, s));
 }
