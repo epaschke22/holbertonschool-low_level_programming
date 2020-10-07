@@ -40,5 +40,9 @@ int bothends(int begin, int end, char *s)
  */
 int is_palindrome(char *s)
 {
-	return (bothends(0, _strlen(s) - 1, s));
+	int length = _strlen(s);
+
+	if (length < 1)
+		return (0);
+	return (bothends(0, length - 1, s));
 }
