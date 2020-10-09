@@ -1,0 +1,1 @@
+The submitions for this project contain information about how to use and make static libraries.
