@@ -1,5 +1,6 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "holberton.h"
 
 /**
@@ -8,9 +9,9 @@
  * @argv: argument vector array.
  * Return: always 0
  */
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int i, j, sum = 0;
 
 	if (argc == 1)
 	{
@@ -19,10 +20,13 @@ int main(int argc, char* argv[])
 	}
 	for (i = 1; i < argc; i++)
 	{
-		if (atoi(argv[i]) == 0)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			printf("Error\n");
-			return (0);
+			if (isdigit(argv[i][j]) == 0)
+			{
+				printf("Error\n");
+				return (0);
+			}
 		}
 		sum += atoi(argv[i]);
 	}
