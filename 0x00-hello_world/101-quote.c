@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * main - outputs message without puts or printf, and prints it to error output.
+ * main - outputs message without puts or printf, and prints it to error
  * Return: prints out a message and return 1.
  */
 int main(void)
