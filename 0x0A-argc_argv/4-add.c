@@ -1,4 +1,4 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include "holberton.h"
@@ -11,7 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, j, sum = 0;
+	int i = 0, j = 0, sum = 0;
 
 	if (argc == 1)
 	{
