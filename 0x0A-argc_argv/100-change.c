@@ -1,4 +1,4 @@
-#include <stdio.h>
+B#include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include "holberton.h"
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	while(money != 0)
+	while (money != 0)
 	{
 		if (money >= coins[i])
 		{
