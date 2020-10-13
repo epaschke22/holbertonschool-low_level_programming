@@ -10,6 +10,8 @@ int _strlen(char *s)
 {
 	int i, length = 0;
 
+	if (s == 0)
+		return (0);
 	for (i = 0; s[i]; i++)
 		length++;
 	return (length);
@@ -59,14 +61,8 @@ char *str_concat(char *s1, char *s2)
 	char *ar;
 	int s1len, s2len;
 
-	if (s1 == 0)
-		s1len = 0;
-	else
-		s1len = _strlen(s1);
-	if (s2 == 0)
-		s2len = 0;
-	else
-		s2len = _strlen(s2);
+	s1len = _strlen(s1);
+	s2len = _strlen(s2);
 
 	ar = malloc(s1len + s2len + 1);
 
