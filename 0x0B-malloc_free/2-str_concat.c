@@ -10,8 +10,6 @@ int _strlen(char *s)
 {
 	int i, length = 0;
 
-	if (s == 0)
-		return (0);
 	for (i = 0; s[i]; i++)
 		length++;
 	return (length);
@@ -54,13 +52,17 @@ char *_strcpy(char *dest, char *src)
  * str_concat - concatenates two strings
  * @s1: first string input
  * @s2: second string input
- * Return: always 0
+ * Return: return combined string.
  */
 char *str_concat(char *s1, char *s2)
 {
 	char *ar;
 	int s1len, s2len;
 
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 	s1len = _strlen(s1);
 	s2len = _strlen(s2);
 
