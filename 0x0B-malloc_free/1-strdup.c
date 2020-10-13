@@ -35,6 +35,10 @@ char *_strdup(char *str)
 		strlen++;
 
 	ar = malloc((strlen + 1) * sizeof(char));
+
+	if (ar == NULL)
+		return (NULL);
+
 	_strcpy(ar, str);
 
 	return (ar);
