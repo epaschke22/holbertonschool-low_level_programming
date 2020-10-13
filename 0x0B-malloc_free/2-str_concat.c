@@ -48,7 +48,6 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-
 /**
  * str_concat - concatenates two strings
  * @s1: first string input
@@ -70,6 +69,10 @@ char *str_concat(char *s1, char *s2)
 		s2len = _strlen(s2);
 
 	ar = malloc(s1len + s2len + 1);
+
+	if (ar == NULL)
+		return (NULL);
+
 	_strcpy(ar, s1);
 	_strcat(ar, s2);
 	return (ar);
