@@ -1,0 +1,1 @@
+This project shows examples of how to use memory allocation and when to free up that memory.
