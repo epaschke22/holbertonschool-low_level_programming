@@ -34,7 +34,7 @@ char *_strcat(char *dest, char *src)
 }
 
 /**
- * argtostr - concatenates all arguments into a string.
+ * argstostr - concatenates all arguments into a string.
  * @ac: argument count.
  * @av: argument strings.
  * Return: always 0
