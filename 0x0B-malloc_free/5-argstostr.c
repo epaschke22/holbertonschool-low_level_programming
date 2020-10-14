@@ -17,22 +17,6 @@ int _strlen(char *s)
 }
 
 /**
- * _strcpy - copies the string pointed to by src.
- * @dest: destination of the copied string.
- * @src: the source of the string to be copied.
- * Return: return destination.
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i;
-
-	for (i = 0; src[i]; i++)
-		dest[i] = src[i];
-	dest[i] = '\0';
-	return (dest);
-}
-
-/**
  * _strcat - concatenates 2 strings
  * @dest: the combined output of both strings.
  * @src: the string to be combined.
@@ -58,7 +42,7 @@ char *_strcat(char *dest, char *src)
 char *argstostr(int ac, char **av)
 {
 	int i, totallen = 0;
-	char *ar, *s, *n;
+	char *ar, *n;
 
 	n = "\n";
 
@@ -73,8 +57,12 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < ac; i++)
 	{
-		s = _strcat(av[i], n);
-		_strcat(ar, s);
+		if (av[i] == NULL)
+		{
+			return (NULL);
+		}
+		_strcat(ar, av[i]);
+		_strcat(ar, n);
 	}
 	return (ar);
 }
