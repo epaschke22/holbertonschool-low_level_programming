@@ -1,0 +1,1 @@
+These tasks involve answers about memory allocation with malloc, calloc and realloc as well as using the term exit.
