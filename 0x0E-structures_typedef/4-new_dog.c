@@ -11,6 +11,7 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	unsigned int i;
 	char *newname, *newowner;
 	dog_t *newdog;
 
@@ -34,8 +35,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	newname = name;
-	newowner = owner;
+	for (i = 0; i < sizeof(newdog->name); i++)
+		newname[i] = name[i];
+	for (i = 0; i < sizeof(newdog->owner); i++)
+		newowner[i] = owner[i];
 
 	newdog->name = newname;
 	newdog->age = age;
