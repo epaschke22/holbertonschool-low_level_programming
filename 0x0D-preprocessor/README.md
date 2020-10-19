@@ -1,0 +1,1 @@
+These tasks go over how to create macros and how to understand how the preprocessor compiler works. 
