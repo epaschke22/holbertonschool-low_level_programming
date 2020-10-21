@@ -3,8 +3,9 @@
 #include "3-calc.h"
 
 /**
- * main - description
- * Return: always 0
+ * get_op_func - returns pointer to needed function
+ * @s: string to check opperator
+ * Return: pointer to opperator function from struct, or nil
  */
 int (*get_op_func(char *s))(int, int)
 {
