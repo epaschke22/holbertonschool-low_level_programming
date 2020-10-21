@@ -16,7 +16,7 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 	if (action != NULL || size > 0)
 		for (i = 0; i < size; i++)
 		{
-			if (isdigit(array[i])
+			if (isdigit(array[i]))
 			    action(array[i]);
 		}
 }
