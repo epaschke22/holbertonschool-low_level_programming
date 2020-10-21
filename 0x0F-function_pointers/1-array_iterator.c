@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include "function_pointers.h"
 
 /**
@@ -16,8 +15,6 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 
 	if (action != NULL)
 		for (i = 0; i < size; i++)
-		{
-			if (isdigit(array[i]))
-			    action(array[i]);
-		}
+			action(array[i]);
+
 }
