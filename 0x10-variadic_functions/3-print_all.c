@@ -18,6 +18,8 @@ void check_space(const char * const format, int place, int len)
 	c = format[place + 1];
 	if (place < len - 1 && (c == 'c' || c == 'i' || c == 'f' || c == 's'))
 		printf(", ");
+	if (c == 'h')
+		c = 'g';
 }
 
 /**
