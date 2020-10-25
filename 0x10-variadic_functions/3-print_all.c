@@ -5,22 +5,6 @@
 
 
 /**
- * check_space - checks whether a comman and space should be added
- * @format: list of type of arguments
- * @place: current place in loop
- * @len: len of format
- * Return: void
- */
-void check_space(const char * const format, int place, int len)
-{
-	char c;
-
-	c = format[place + 1];
-	if (place < len - 1 && (c == 'c' || c == 'i' || c == 'f' || c == 's'))
-		printf(", ");
-}
-
-/**
  * print_all - prints out chars, ints, floats, and strings
  * @format: a list of types of arguments to pass into function
  * Return: void
@@ -28,7 +12,7 @@ void check_space(const char * const format, int place, int len)
 void print_all(const char * const format, ...)
 {
 	va_list valist;
-	int len = 0, i = 0;
+	int len = 0, i = 0, flag = 0;
 	char *s;
 
 	while (format[len])
@@ -57,10 +41,13 @@ void print_all(const char * const format, ...)
 			printf("%s", s);
 			break;
 		default:
+			flag = 1;
 			break;
 		}
-		check_space(format, i, len);
+		if (i < len - 1 && flag == 0)
+			printf(", ");
 		i++;
+		flag = 0;
 	}
 	putchar('\n');
 	va_end(valist);
