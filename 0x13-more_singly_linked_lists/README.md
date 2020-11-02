@@ -1,0 +1,1 @@
+These asignments will cover more examples and techniques used with linked lists.
