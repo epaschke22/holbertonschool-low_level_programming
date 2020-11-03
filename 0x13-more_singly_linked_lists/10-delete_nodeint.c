@@ -76,6 +76,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	tmphead = *head;
 	len = listint_len(tmphead);
+	if (len == 0)
+		return (-1);
 	if (index == 0)
 		return (remove_beginning(head));
 	if (index == len - 1)
