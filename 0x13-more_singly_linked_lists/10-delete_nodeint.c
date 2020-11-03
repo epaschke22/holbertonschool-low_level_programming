@@ -49,7 +49,7 @@ int remove_end(listint_t **head)
 
 	tmphead = *head;
 	len = listint_len(tmphead);
-	while (i < len - 1)
+	while (i < len - 2)
 	{
 		tmphead = tmphead->next;
 		i++;
@@ -68,7 +68,7 @@ int remove_end(listint_t **head)
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *temp, *tmphead , *freenode;
+	listint_t *temp, *tmphead, *freenode;
 	unsigned int count = 0, len;
 
 	if (head == NULL)
@@ -80,6 +80,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (remove_beginning(head));
 	if (index == len - 1)
 		return (remove_end(head));
+	if (index == len)
+		return (-1);
 	while (tmphead != NULL)
 	{
 		if (count == index - 1)
