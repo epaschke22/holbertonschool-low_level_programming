@@ -33,7 +33,10 @@ void free_listint2(listint_t **head)
 	len = (listint_len(tmphead));
 
 	if (len == 0)
+	{
+		*head = NULL;
 		return;
+	}
 	while (tmphead != NULL)
 	{
 		temp = tmphead->next;
