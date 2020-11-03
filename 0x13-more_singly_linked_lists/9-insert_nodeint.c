@@ -3,6 +3,42 @@
 #include "lists.h"
 
 /**
+ * listint_len - returns the number of elements in linked
+ * @h: list to prtinf from
+ * Return: number of elements
+ */
+size_t listint_len(const listint_t *h)
+{
+	int count = 0;
+
+	while (h != NULL)
+	{
+		count++;
+		h = h->next;
+	}
+	return (count);
+}
+
+/**
+ * add_nodeint - adds node to beginning a list
+ * @head: pointer to head of list
+ * @n: element to put in new node
+ * Return: adress to element
+ */
+listint_t *add_nodeint(listint_t **head, const int n)
+{
+	listint_t *new;
+
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = *head;
+	*head = new;
+	return (*head);
+}
+
+/**
  * insert_nodeint_at_index - returns the nth node of a list
  * @head: list to look through
  * @idx: the place to add the node
