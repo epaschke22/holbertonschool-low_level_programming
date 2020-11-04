@@ -63,7 +63,7 @@ listint_t *add_nodeint_end2(listint_t **head, const int n)
 		last = last->next;
 
 	last->next = new;
-	return (*head);
+	return (new);
 }
 
 /**
@@ -92,8 +92,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (add_nodeint(head, n));
 	if (idx == len)
 		return (add_nodeint_end2(head, n));
-	if (idk > len)
-		return (NULL);
 	while (tmphead != NULL)
 	{
 		if (count == idx - 1)
