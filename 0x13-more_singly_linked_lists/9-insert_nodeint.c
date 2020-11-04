@@ -61,7 +61,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	tmphead = *head;
 	len = listint_len(tmphead);
 	if (idx == 0)
-		return (add_nodeint(head, n));
+	{
+		add_nodeint(head, n);
+		return (*head);
+	}
 	if (idx == len)
 		return (add_nodeint_end(head, n));
 	while (tmphead != NULL)
