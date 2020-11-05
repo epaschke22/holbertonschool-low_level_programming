@@ -9,21 +9,20 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i, power = 1, number = 0;
+	unsigned int power = 1, number = 0;
+	int len;
 
 	if (b == NULL)
 		return (0);
-	for (i = 0; b[i]; i++)
-	{
-		power *= 2;
-		if (b[i] != '0' && b[i] != '1')
+	for (len = 0; b[len]; len++)
+		if (b[len] != '0' && b[len] != '1')
 			return (0);
-	}
-	for (i = 0; b[i]; i++)
+	len--;
+	for (; len >= 0; len--)
 	{
-		power /= 2;
-		if (b[i] == '1')
+		if (b[len] == '1')
 			number += power;
+		power *= 2;
 	}
 	return (number);
 }
