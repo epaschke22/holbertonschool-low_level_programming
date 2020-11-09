@@ -6,6 +6,12 @@
 #include <unistd.h>
 #include "holberton.h"
 
+/**
+ * closefiles - closes both files and checks for errors
+ * @file1: first file
+ * @file2: second file
+ * Return: void
+ */
 void closefiles(int file1, int file2)
 {
 	int close1, close2;
@@ -32,9 +38,10 @@ void closefiles(int file1, int file2)
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to, readbytes, writebytes;
+	int file_from, file_to, wcheck, flag, readbytes, totalbytes = 0;
 	char *buf;
 
+	buf = malloc(1024 * sizeof(char));
 	if (ac != 3)
 	{
 		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
@@ -47,13 +54,26 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	buf = malloc(1024 * sizeof(char));
-	readbytes = read(file_from, buf, 1024);
-	writebytes = write(file_to, buf, readbytes);
-	if (writebytes == -1)
+
+	while(flag != 1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", av[1]);
-		exit(99);
+		readbytes = read(file_from, buf, 1024);
+		if (readbytes == 0)
+		{
+			flag = 1;
+			continue;
+		}
+		totalbytes += readbytes;
+		if (totalbytes % 1024 == 0 && readbytes != 0)
+			wcheck = write(file_to, buf, readbytes);
+		if (totalbytes % 1024 != 0)
+			wcheck = write(file_to, buf, (totalbytes % 1024));
+		if (wcheck == -1)
+		{
+			closefiles(file_from, file_to);
+			dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", av[1]);
+			exit(99);
+		}
 	}
 	closefiles(file_from, file_to);
 	free(buf);
