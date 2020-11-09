@@ -42,6 +42,8 @@ int main(int ac, char **av)
 	char *buf;
 
 	buf = malloc(1024 * sizeof(char));
+	if (buf == NULL)
+		return (0);
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
