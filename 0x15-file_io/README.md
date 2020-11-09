@@ -1,0 +1,1 @@
+These problems are exampls of how to use open, close, read, write and dprintf.
