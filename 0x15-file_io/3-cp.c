@@ -6,6 +6,24 @@
 #include <unistd.h>
 #include "holberton.h"
 
+void closefiles(int file1, int file2)
+{
+	int close1, close2;
+
+	close1 = close(file1);
+	if (close1 == -1)
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", file1);
+		exit(100);
+	}
+	close2 = close(file2);
+	if (close2 == -1)
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", file2);
+		exit(100);
+	}
+}
+
 /**
  * main - check the code for Holberton School students.
  * @ac: number of arguments
@@ -14,7 +32,7 @@
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to, readbytes, writebytes, close1, close2;
+	int file_from, file_to, readbytes, writebytes;
 	char *buf;
 
 	if (ac != 3)
@@ -37,18 +55,7 @@ int main(int ac, char **av)
 		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", av[1]);
 		exit(99);
 	}
-	close1 = close(file_from);
-	if (close1 == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", file_from);
-		exit(100);
-	}
-	close2 = close(file_to);
-	if (close2 == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", file_to);
-		exit(100);
-	}
+	closefiles(file_from, file_to);
 	free(buf);
 	return (0);
 }
