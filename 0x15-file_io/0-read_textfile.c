@@ -27,10 +27,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (file == -1)
 		return (0);
 	written = read(file, buf, letters);
-	check = write(1, buf, letters);
+	if (written == -1)
+		return (0);
+	check = write(1, buf, written);
 	if (check == -1)
 		return (0);
 	close(file);
 	free(buf);
-	return (written);
+	return (check);
 }
