@@ -19,13 +19,13 @@ void closefiles(int file1, int file2)
 	close1 = close(file1);
 	if (close1 == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", file1);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file1);
 		exit(100);
 	}
 	close2 = close(file2);
 	if (close2 == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", file2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file2);
 		exit(100);
 	}
 }
@@ -44,18 +44,18 @@ int main(int ac, char **av)
 	buf = malloc(1024 * sizeof(char));
 	if (ac != 3)
 	{
-		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	file_from = open(av[1], O_RDONLY);
 	if (file_from == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	while(flag != 1)
+	while (flag != 1)
 	{
 		readbytes = read(file_from, buf, 1024);
 		if (readbytes == 0)
@@ -71,7 +71,7 @@ int main(int ac, char **av)
 		if (wcheck == -1)
 		{
 			closefiles(file_from, file_to);
-			dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", av[1]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[1]);
 			exit(99);
 		}
 	}
