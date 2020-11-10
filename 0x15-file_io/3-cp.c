@@ -36,9 +36,9 @@ void closefiles(int file1, int file2)
  * @file2: file_to
  * @buf: buffer to hold characters to be copied
  * @a: argument to print
- * Return: -1 if failed.
+ * Return: void
  */
-int copytofile(int file1, int file2, char *buf, char *a)
+void copytofile(int file1, int file2, char *buf, char **a)
 {
 	int wcheck, readbytes, totalbytes = 0;
 
@@ -46,7 +46,10 @@ int copytofile(int file1, int file2, char *buf, char *a)
 	{
 		readbytes = read(file1, buf, 1024);
 		if (readbytes == -1)
-			return (-1);
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", a[1]);
+			exit(98);
+		}
 		if (readbytes == 0)
 			break;
 		totalbytes += readbytes;
@@ -57,11 +60,10 @@ int copytofile(int file1, int file2, char *buf, char *a)
 		if (wcheck == -1)
 		{
 			closefiles(file1, file2);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", a);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", a[2]);
 			exit(99);
 		}
 	}
-	return (0);
 }
 
 /**
@@ -72,7 +74,7 @@ int copytofile(int file1, int file2, char *buf, char *a)
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to, check = 0;
+	int file_from, file_to;
 	char *buf;
 
 	buf = malloc(1024 * sizeof(char));
@@ -89,12 +91,7 @@ int main(int ac, char **av)
 	}
 	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	check = copytofile(file_from, file_to, buf, av[2]);
-	if (check == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
+	copytofile(file_from, file_to, buf, av);
 	closefiles(file_from, file_to);
 	free(buf);
 	return (0);
