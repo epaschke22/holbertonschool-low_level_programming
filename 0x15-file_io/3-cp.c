@@ -42,9 +42,11 @@ void copytofile(int file1, int file2, char *buf, char *a)
 {
 	int wcheck, readbytes, totalbytes = 0;
 
-	while (readbytes != 0)
+	while (1)
 	{
 		readbytes = read(file1, buf, 1024);
+		if (readbytes == 0)
+			break;
 		totalbytes += readbytes;
 		if (totalbytes % 1024 == 0 && readbytes != 0)
 			wcheck = write(file2, buf, readbytes);
