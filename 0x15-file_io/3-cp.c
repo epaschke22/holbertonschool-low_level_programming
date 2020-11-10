@@ -8,8 +8,8 @@
 
 /**
  * closefiles - closes both files and checks for errors
- * @file1: first file
- * @file2: second file
+ * @file1: file_from
+ * @file2: file_to
  * Return: void
  */
 void closefiles(int file1, int file2)
@@ -34,22 +34,17 @@ void closefiles(int file1, int file2)
  * copytofile - main process of the program
  * @file1: file_from
  * @file2: file_to
- * @buf: string to copt
+ * @buf: buffer to hold characters to be copied
  * @a: argument to print
- * Return: always 0
+ * Return: void
  */
 void copytofile(int file1, int file2, char *buf, char *a)
 {
-	int wcheck, flag = 0, readbytes = 0, totalbytes = 0;
+	int wcheck, readbytes, totalbytes = 0;
 
-	while (flag != 1)
+	while (readbytes != 0)
 	{
 		readbytes = read(file1, buf, 1024);
-		if (readbytes == 0)
-		{
-			flag = 1;
-			continue;
-		}
 		totalbytes += readbytes;
 		if (totalbytes % 1024 == 0 && readbytes != 0)
 			wcheck = write(file2, buf, readbytes);
