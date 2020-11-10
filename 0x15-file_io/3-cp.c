@@ -31,6 +31,40 @@ void closefiles(int file1, int file2)
 }
 
 /**
+ * copytofile - main process of the program
+ * @file1: file_from
+ * @file2: file_to
+ * @buf: string to copt
+ * @a: argument to print
+ * Return: always 0
+ */
+void copytofile(int file1, int file2, char *buf, char *a)
+{
+	int wcheck, flag = 0, readbytes = 0, totalbytes = 0;
+
+	while (flag != 1)
+	{
+		readbytes = read(file1, buf, 1024);
+		if (readbytes == 0)
+		{
+			flag = 1;
+			continue;
+		}
+		totalbytes += readbytes;
+		if (totalbytes % 1024 == 0 && readbytes != 0)
+			wcheck = write(file2, buf, readbytes);
+		if (totalbytes % 1024 != 0)
+			wcheck = write(file2, buf, (totalbytes % 1024));
+		if (wcheck == -1)
+		{
+			closefiles(file1, file2);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", a);
+			exit(99);
+		}
+	}
+}
+
+/**
  * main - check the code for Holberton School students.
  * @ac: number of arguments
  * @av: list of arguments
@@ -38,12 +72,10 @@ void closefiles(int file1, int file2)
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to, wcheck, flag, readbytes, totalbytes = 0;
+	int file_from, file_to;
 	char *buf;
 
 	buf = malloc(1024 * sizeof(char));
-	if (buf == NULL)
-		return (0);
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
@@ -57,26 +89,7 @@ int main(int ac, char **av)
 	}
 	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	while (flag != 1)
-	{
-		readbytes = read(file_from, buf, 1024);
-		if (readbytes == 0)
-		{
-			flag = 1;
-			continue;
-		}
-		totalbytes += readbytes;
-		if (totalbytes % 1024 == 0 && readbytes != 0)
-			wcheck = write(file_to, buf, readbytes);
-		if (totalbytes % 1024 != 0)
-			wcheck = write(file_to, buf, (totalbytes % 1024));
-		if (wcheck == -1)
-		{
-			closefiles(file_from, file_to);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[1]);
-			exit(99);
-		}
-	}
+	copytofile(file_from, file_to, buf, av[2]);
 	closefiles(file_from, file_to);
 	free(buf);
 	return (0);
