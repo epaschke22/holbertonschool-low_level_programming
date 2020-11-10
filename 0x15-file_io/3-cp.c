@@ -91,7 +91,10 @@ int main(int ac, char **av)
 
 	check = copytofile(file_from, file_to, buf, av[2]);
 	if (check == -1)
-		return (-1);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+		exit(98);
+	}
 	closefiles(file_from, file_to);
 	free(buf);
 	return (0);
