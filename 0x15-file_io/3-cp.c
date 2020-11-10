@@ -36,15 +36,17 @@ void closefiles(int file1, int file2)
  * @file2: file_to
  * @buf: buffer to hold characters to be copied
  * @a: argument to print
- * Return: void
+ * Return: -1 if failed.
  */
-void copytofile(int file1, int file2, char *buf, char *a)
+int copytofile(int file1, int file2, char *buf, char *a)
 {
 	int wcheck, readbytes, totalbytes = 0;
 
 	while (1)
 	{
 		readbytes = read(file1, buf, 1024);
+		if (readbytes == -1)
+			return (-1);
 		if (readbytes == 0)
 			break;
 		totalbytes += readbytes;
@@ -59,6 +61,7 @@ void copytofile(int file1, int file2, char *buf, char *a)
 			exit(99);
 		}
 	}
+	return (0);
 }
 
 /**
@@ -69,7 +72,7 @@ void copytofile(int file1, int file2, char *buf, char *a)
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to;
+	int file_from, file_to, check = 0;
 	char *buf;
 
 	buf = malloc(1024 * sizeof(char));
@@ -86,7 +89,9 @@ int main(int ac, char **av)
 	}
 	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	copytofile(file_from, file_to, buf, av[2]);
+	check = copytofile(file_from, file_to, buf, av[2]);
+	if (check == -1)
+		return (-1);
 	closefiles(file_from, file_to);
 	free(buf);
 	return (0);
