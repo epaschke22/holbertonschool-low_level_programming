@@ -38,7 +38,7 @@ int remove_beginning(dlistint_t **head)
 		return (1);
 	}
 	newhead = tmphead->next;
-    newhead->prev = NULL;
+	newhead->prev = NULL;
 	free(tmphead);
 	*head = newhead;
 	return (1);
@@ -62,7 +62,7 @@ int remove_end(dlistint_t **head)
 		i++;
 	}
 	temp = tmphead->next;
-    temp->prev = NULL;
+	temp->prev = NULL;
 	tmphead->next = NULL;
 	free(temp);
 	return (1);
@@ -98,7 +98,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		{
 			freenode = tmphead;
 			freenode->prev->next = freenode->next;
-            freenode->next->prev = freenode->prev;
+			freenode->next->prev = freenode->prev;
 			freenode->next = NULL;
 			freenode->prev = NULL;
 			free(freenode);
