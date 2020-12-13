@@ -21,7 +21,7 @@ size_t dlistint_len(const dlistint_t *h)
 
 /**
  * insert_dnodeint_at_index - returns the nth node of a list
- * @head: list to look through
+ * @h: list to look through
  * @idx: the place to add the node
  * @n: the value to add to the new node
  * Return: listint node added
@@ -52,8 +52,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			temp = tmphead->next;
 			tmphead->next = new;
 			new->next = temp;
-            temp->prev = new;
-            new->prev = tmphead;
+			temp->prev = new;
+			new->prev = tmphead;
 			return (new);
 		}
 		count++;

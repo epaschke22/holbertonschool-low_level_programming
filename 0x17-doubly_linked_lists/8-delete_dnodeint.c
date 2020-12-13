@@ -69,7 +69,7 @@ int remove_end(dlistint_t **head)
 }
 
 /**
- * delete_nodeint_at_index - deletes node at index
+ * delete_dnodeint_at_index - deletes node at index
  * @head: list to look through
  * @index: the place to delete the node
  * Return: 1 if success else -1
