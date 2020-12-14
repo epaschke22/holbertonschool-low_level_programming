@@ -49,14 +49,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		if (count == idx)
 		{
-			printf("true: %d\n", count);
 			new->next = tmphead;
 			new->prev = tmphead->prev;
 			tmphead->prev->next = new;
 			tmphead->prev = new;
 			return (new);
 		}
-		printf("place: %d\n", count);
 		count++;
 		tmphead = tmphead->next;
 	}
