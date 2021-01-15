@@ -7,7 +7,7 @@
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned int i, comma = 0;
+	unsigned long int i, comma = 0;
 	hash_node_t *node;
 
 	if (ht == NULL)
@@ -23,7 +23,7 @@ void hash_table_print(const hash_table_t *ht)
 			printf("'%s': '%s'", node->key, node->value);
 			if (node->next != NULL)
 			{
-				node = node->next; 
+				node = node->next;
 				while (node->next != NULL)
 				{
 					printf(", '%s': '%s'", node->key, node->value);
