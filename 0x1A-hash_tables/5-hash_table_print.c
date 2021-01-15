@@ -22,11 +22,14 @@ void hash_table_print(const hash_table_t *ht)
 				printf(", ");
 			printf("'%s': '%s'", node->key, node->value);
 			if (node->next != NULL)
+			{
+				node = node->next; 
 				while (node->next != NULL)
 				{
 					printf(", '%s': '%s'", node->key, node->value);
 					node = node->next;
 				}
+			}
 			comma = 1;
 		}
 	}
