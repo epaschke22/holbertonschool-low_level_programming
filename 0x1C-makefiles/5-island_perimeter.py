@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 """doc string for ilsand perimeter counting"""
+
+
 def island_perimeter(grid):
     """this is the function"""
+    if len(grid) == 0:
+        return 0
     perimeter = 0
     for y in range(0, len(grid)):
         for x in range(0, len(grid[y])):
