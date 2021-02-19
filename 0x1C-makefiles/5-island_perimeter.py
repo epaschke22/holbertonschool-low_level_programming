@@ -9,24 +9,16 @@ def island_perimeter(grid):
         for x in range(0, len(grid[y])):
             if grid[y][x] == 1:
                 perimeter += 4
-                try:
+                if x != len(grid[y]) - 1:
                     if grid[y][x + 1] == 1:
                         perimeter -= 1
-                except:
-                    pass
-                try:
+                if x != 0:
                     if grid[y][x - 1] == 1:
                         perimeter -= 1
-                except:
-                    pass
-                try:
+                if y != len(grid) - 1:
                     if grid[y + 1][x] == 1:
                         perimeter -= 1
-                except:
-                    pass
-                try:
+                if y != 0:
                     if grid[y - 1][x] == 1:
                         perimeter -= 1
-                except:
-                    pass
     return perimeter
