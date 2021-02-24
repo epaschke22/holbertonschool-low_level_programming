@@ -13,7 +13,6 @@ all: $(OBJ) $(SRC) $(DEPS)
 clean:
 	${RM} *~ $(NAME)
 
-.PHONEY: oclean
 oclean:
 	$(RM) $(OBJ)
 
