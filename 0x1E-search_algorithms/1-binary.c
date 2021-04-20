@@ -17,15 +17,14 @@ int recursive(int *array, int left, int right, int value)
 		/* print array */
 		printf("Searching in array: ");
 		for (i = left; i <= right; i++)
-			printf("%i%s", array[i], i <= right - 1 ? ", " : "");
-		printf("\n");
+			printf("%i%s", array[i], i <= right - 1 ? ", " : "\n");
 
 		mid = left + (right - left) / 2;
 		if (array[mid] == value)
-			return mid;
+			return (mid);
 		if (array[mid] > value)
-			return recursive(array, left, mid - 1, value);
-		return recursive(array, mid + 1, right, value);
+			return (recursive(array, left, mid - 1, value));
+		return (recursive(array, mid + 1, right, value));
 	}
 	return (-1);
 }
@@ -39,5 +38,5 @@ int recursive(int *array, int left, int right, int value)
  */
 int binary_search(int *array, size_t size, int value)
 {
-	return(recursive(array, 0, size - 1, value));
+	return (recursive(array, 0, size - 1, value));
 }
