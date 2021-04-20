@@ -20,9 +20,9 @@ int recursive(int *array, int left, int right, int value)
 			printf("%i%s", array[i], i <= right - 1 ? ", " : "\n");
 
 		mid = left + (right - left) / 2;
-		if (array[mid] == value)
+		if (array[mid] == value && array[mid - 1] != value)
 			return (mid);
-		if (array[mid] > value)
+		if (array[mid] >= value)
 			return (recursive(array, left, mid - 1, value));
 		return (recursive(array, mid + 1, right, value));
 	}
